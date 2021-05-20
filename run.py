@@ -241,6 +241,7 @@ def splitpredict(hparams, checkpoint_callback, meta_data_vocab, train_dataloader
         for sentence_str in model.all_predictions_oie:
             sentence_str = sentence_str.strip('\n')
             num_extrs = len(sentence_str.split('\n'))-1 
+            curr_line_num = prev_line_num+num_extrs
             if num_extrs == 0:
                 if curr_line_num not in no_extractions:
                     no_extractions[curr_line_num] = []
